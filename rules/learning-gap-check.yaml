@@ -1,0 +1,198 @@
+# 能力差距与培养计划核对 规则库
+#
+# 规则数据与代码分离：替换本文件即可切换规则集版本，无需改动 TypeScript。
+#
+# 条款引用纪律（由 shared/ruleset.ts 强制校验）：
+#   - 每条规则必须写全 document / number / clause / excerpt / kind / source，
+#     且 excerpt 必须是逐字摘录，不得改写。
+#   - kind: direct                       条款直接规定了所检查的要求
+#   - kind: derived-from-principle       条款未直接规定，仅能由原则性条款推论（severity 最多 warn）
+#   - kind: institutional-configuration 阈值出自本机构配置（severity 最多 info）
+#
+# ⚠️⚠️ 本规则库的诚实说明：**excerpt 一律不是引文。**
+#   本插件核对的是"员工能力差距与培养计划台账"的**算术与闭环**：
+#     岗位与能力项是否填写、要求等级与现有等级是否可解析、
+#     差距是否等于两者之差、有差距的是否有培养措施、
+#     有措施的是否有责任人与完成期限、完成日期是否落在期限内、
+#     培养状态是否在册、能力项是否重复、是否残留模板占位符。
+#   其规范载体是**GB/T 19025—2023《质量管理 能力管理和人员发展指南》**
+#   （2023-03-17 发布并实施；归口全国质量管理和质量保证标准化技术委员会；
+#     CCS A00、ICS 03.120.10）与 **ISO 10015:2019**（同名，2019-12-17 现行）。
+#   ⚠️ **两处已于 2026-10-07 更正**（见 rules/evidence/clause-verification-standard-currency.md）：
+#     ① 旧写法称 GB/T 19025「**等同采用** ISO 10015」 —— 本次在**国家数字标准馆**的
+#        GB/T 19025—2023 页面上**未见"采标情况"字段**，故**该采标关系本轮无法证实**；
+#        ⚠️ **本规则库不再声称二者的采标关系**，读者如需引用应自行核对现行标准的封面与前言。
+#     ② 旧写法未标年号 —— 现补足为 **GB/T 19025—2023** 与 **ISO 10015:2019**。
+#        ⚠️ 该标准**换代跨了名称与版本**：其**2001 版**的主题是"培训管理体系"，
+#        而**2023 版**的主题是"**能力管理和人员发展**"，**两者不是同一主题的修订**。
+#   **核查未取得这些文件的逐字条文**，故每条 excerpt 如实写明，kind 降为 derived-from-principle（封顶 warn）。
+#
+# ⚠️⚠️ 另一条**必须保留的边界**：**本插件绝不判定员工是否胜任、
+#   评估是否客观、培养措施是否有效、是否应当调岗或辞退**。
+#   那需要结合绩效事实与岗位要求判断，是用人部门与人力资源部门的职责。
+#   → **本插件不内置任何能力等级刻度**：它读台账里的三个数值栏，
+#     只核对**它们之间的算术关系**。等级是数字还是字母由使用方口径决定；
+#     若本机构用字母等级（A/B/C），请把差距栏也改为可解析形式，或停用该条规则。
+#   → **差距判定阈值（minGapToRequireAction）出厂未配置。**
+
+plugin: dsh-learning-gap-check
+version: "2026.1"
+
+rules:
+  - id: LG-001
+    title: 每条差距都应填写岗位与能力项
+    severity: warn
+    basis:
+      document: 《质量管理 能力管理和人员发展指南》
+      number: GB/T 19025—2023（质量管理 能力管理和人员发展指南；2023-03-17 发布并实施；归口全国质量管理和质量保证标准化技术委员会；条号本次未取得）
+      clause: 关于能力要求识别的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=D49E0CDA27AE25C80AF34FDA534B5E9A
+    params:
+        check:
+          kind: presenceAny
+          fields: ["position","competency"]
+          fix: 补填岗位与能力项；本条只核对是否填写，不判断能力要求是否合理
+    note: >-
+      能力差距若不写明"哪个岗位的哪项能力"，结论就无法落地到具体的培养动作。
+      本次未取得明文条号，故封顶 warn。
+      本条只核对"至少填了一个"，**不判断该岗位的能力要求是否合理、是否完整**。
+
+  - id: LG-002
+    title: 要求等级与现有等级应为可解析的数值
+    severity: warn
+    basis:
+      document: 《质量管理 能力管理和人员发展指南》
+      number: GB/T 19025—2023（质量管理 能力管理和人员发展指南；2023-03-17 发布并实施；归口全国质量管理和质量保证标准化技术委员会；条号本次未取得）
+      clause: 关于能力评估的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=D49E0CDA27AE25C80AF34FDA534B5E9A
+    params:
+        check:
+          kind: number
+          field: actualLevel
+          fix: 现有等级应填写数字；本条只核对可解析性，不判断评估是否客观
+    note: >-
+      两个等级只有可解析，差距才算得出来。本次未取得明文条号，故封顶 warn。
+      ⚠️ 本条**假定等级以数字表示**：若本机构使用字母等级（A/B/C 或「熟练／掌握／了解」），
+      本条会判为不可解析而报出 —— 此时请把台账改为可比较的数字刻度，或停用本条。
+      本条只核对可解析性，**不判断评估结果是否客观、是否准确**。
+
+  - id: LG-003
+    title: 差距等级应等于要求等级减现有等级
+    severity: warn
+    basis:
+      document: 《质量管理 能力管理和人员发展指南》
+      number: GB/T 19025—2023（质量管理 能力管理和人员发展指南；2023-03-17 发布并实施；归口全国质量管理和质量保证标准化技术委员会；条号本次未取得）
+      clause: 关于能力差距分析的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=D49E0CDA27AE25C80AF34FDA534B5E9A
+    params:
+        check:
+          kind: formula
+          resultField: gapLevel
+          expression: {"op":"subtract","fields":["requiredLevel","actualLevel"]}
+          tolerance: 0
+    note: >-
+      差距 = 要求等级 − 现有等级是该表的**定义式**，属纯算术核对。
+      本次未取得明文条号，故封顶 warn。
+      本条只在三个字段都有可解析数值时执行；缺任一项即进 skipped。
+      ⚠️ **负值由本条如实报出**：现有等级高于要求时差距为负，可能是填反了，
+      也可能是条目标注了"超出要求" —— 请核对后决定是修正数据还是停用本条。
+      本条**不判断差距有多大才算问题**。
+
+  - id: LG-004
+    title: 存在差距的条目应填写培养措施
+    severity: info
+    basis:
+      document: 本机构培训与发展管理口径（本机构配置）
+      number: 无统一标准（本条依据为本机构配置的差距阈值）
+      clause: 关于培养措施的条款（本次未取得条号）
+      excerpt: 本条依据为本机构配置的口径，不存在可引用的标准条文；本规则库不伪造引文。
+      kind: institutional-configuration
+      source: https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=D49E0CDA27AE25C80AF34FDA534B5E9A
+    params:
+        check:
+          kind: thresholdPresence
+          triggerField: gapLevel
+          threshold: 0
+          requiredField: action
+    note: >-
+      threshold 出厂为 0，表示**未配置**，本条进 skipped。
+      依据说明：**"差距多大才必须提培养措施"取决于本机构的人才管理口径** ——
+      有的单位只要低于要求就须提措施，有的把 1 级以内视为可接受。
+      本插件**不硬编码任何阈值**。配置示例：threshold: 1（差距达 1 级及以上须有措施）。
+      本条只核对培养措施栏是否填写，**不判断该措施是否有效、是否有针对性**。
+
+  - id: LG-005
+    title: 有培养措施的条目应填写责任人与完成期限
+    severity: warn
+    basis:
+      document: 《质量管理 能力管理和人员发展指南》
+      number: GB/T 19025—2023（质量管理 能力管理和人员发展指南；2023-03-17 发布并实施；归口全国质量管理和质量保证标准化技术委员会；条号本次未取得）
+      clause: 关于人员发展计划的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=D49E0CDA27AE25C80AF34FDA534B5E9A
+    params:
+        check:
+          kind: conditionalPresence
+          conditionField: action
+          requiredFields: ["owner","dueAt"]
+          conditionValues: []
+          fix: 补填责任人与完成期限；本条只核对是否记录，不判断措施是否有效
+    note: >-
+      培养措施若没有责任人与完成期限，就会停在纸面上 —— 这是**培养计划最常失效的地方**。
+      本次未取得明文条号，故封顶 warn。
+      本条**只在培养措施已填写时**要求责任人与期限。
+      本条只核对字段是否填写，**不判断该措施是否有效、期限是否合理**。
+
+  - id: LG-006
+    title: 完成日期不应晚于完成期限
+    severity: warn
+    basis:
+      document: 《质量管理 能力管理和人员发展指南》
+      number: GB/T 19025—2023（质量管理 能力管理和人员发展指南；2023-03-17 发布并实施；归口全国质量管理和质量保证标准化技术委员会；条号本次未取得）
+      clause: 关于人员发展计划跟踪的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=D49E0CDA27AE25C80AF34FDA534B5E9A
+    params:
+        check:
+          kind: date
+          field: dueAt
+          notBeforeField: completedAt
+          fix: 完成期限不应早于完成日期；核对两个日期的填写
+    note: >-
+      "先定期限、后完成"是计划跟踪的**时间前提**。本条把期限当作较早的一端：
+      若完成日期早于期限，说明两栏填反了。
+      本次未取得明文条号，故封顶 warn。
+      ⚠️ 本条**不判断是否按期完成**：要判断"完成得晚不晚"，
+      应比较完成日期与期限，而本条只核对两者的先后是否可能。
+      日期无法解析时会单独报出，**不会静默跳过**。
+
+  - id: LG-007
+    title: 培养状态应使用本机构口径的取值
+    severity: info
+    basis:
+      document: 本机构培训与发展管理口径（本机构配置）
+      number: 无统一标准（本条依据为本机构配置的状态口径）
+      clause: 关于培养计划状态的条款（本次未取得条号）
+      excerpt: 本条依据为本机构配置的口径，不存在可引用的标准条文；本规则库不伪造引文。
+      kind: institutional-configuration
+      source: https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=D49E0CDA27AE25C80AF34FDA534B5E9A
+    params:
+        check:
+          kind: enum
+          field: status
+          values: []
+    note: >-
+      values 出厂为空，表示**未配置**，本条进 skipped。
+      依据说明：培养状态的口径（例如「未开始」「进行中」「已完成」「已验收」）
+      随**本机构培训与发展管理口径**变化，本插件**不硬编码任何取值清单**。
+      本条只核对所填值是否在册，**不判断培养措施是否真的落实**。
+
+disabled: []

@@ -1,0 +1,26 @@
+{
+  "ruleId": "LG-004",
+  "configure": {
+    "LG-004": {
+      "threshold": 1
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "LG-004-compliant.json",
+      "expect": {
+        "ruleId": "LG-004",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "LG-004-unsafe.json",
+      "expect": {
+        "ruleId": "LG-004",
+        "count": 1
+      }
+    }
+  ]
+}

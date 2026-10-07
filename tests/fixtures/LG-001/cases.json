@@ -1,0 +1,21 @@
+{
+  "ruleId": "LG-001",
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "LG-001-compliant.json",
+      "expect": {
+        "ruleId": "LG-001",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "LG-001-unsafe.json",
+      "expect": {
+        "ruleId": "LG-001",
+        "count": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "ruleId": "LG-007",
+  "configure": {
+    "LG-007": {
+      "values": [
+        "未开始",
+        "进行中",
+        "已完成",
+        "已验收"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "LG-007-compliant.json",
+      "expect": {
+        "ruleId": "LG-007",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "LG-007-unsafe.json",
+      "expect": {
+        "ruleId": "LG-007",
+        "count": 1
+      }
+    }
+  ]
+}

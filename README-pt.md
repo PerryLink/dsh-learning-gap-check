@@ -1,4 +1,25 @@
-# dsh-learning-gap-check
+# dsh-learning-gap-check — Registo de lacunas de competência e verificação do plano de desenvolvimento
+
+`dsh-learning-gap-check` lê um registo de lacunas de competência e plano de desenvolvimento —o cabeçalho do colaborador mais uma linha por competência— e verifica a aritmética e o fecho desse próprio registo: que cada lacuna indique o seu posto e a sua competência, que os níveis registados sejam analisáveis como números, que a lacuna seja igual ao nível exigido menos o nível atual, que uma lacuna acima do limiar que configurar traga uma ação de desenvolvimento, que a ação indique responsável e prazo, que a data de conclusão não seja posterior ao prazo e que o estado da ação venha do seu próprio vocabulário.
+
+## O que ele responde
+
+| Você pergunta | O que ele responde |
+|---|---|
+| Uma linha traz a competência mas deixa o posto em branco. | `LG-001` só assinala uma linha quando `position` e `competency` estão ambas vazias; basta que uma delas esteja preenchida. Verifica que a linha indique o posto e a competência, não se a exigência de competência desse posto é razoável ou completa. |
+| Os nossos níveis estão escritos com palavras («熟练», «掌握») ou com letras (A/B/C) — o que acontece? | `LG-002` lê `actualLevel` e exige que seja analisável como número, pelo que um nível em palavras ou letras é reportado como não analisável. O plugin não inclui qualquer escala de competência: converta o registo para uma escala numérica ou desative `LG-002` juntamente com `LG-003`. A analisabilidade é tudo o que verifica; não julga se a avaliação foi objetiva ou exata. |
+| A coluna da lacuna diz `3`, mas `4` menos `2` dá `2` — isso é detetado? | Sim. `LG-003` recalcula `requiredLevel − actualLevel` com tolerância `0` e assinala a linha cujo `gapLevel` registado não coincide. Só corre quando as três colunas têm números analisáveis; se faltar uma, a regra passa a `skipped`. Um valor negativo é reportado tal como está, porque as colunas podem estar trocadas, e a regra não decide a partir de que dimensão a lacuna é um problema. |
+| Uma linha regista uma ação de desenvolvimento, mas sem responsável nem prazo. | `LG-005` exige `owner` e `dueAt` em todas as linhas com `action` preenchida e assinala a linha à qual falta um dos dois. Verifica que os dois campos estejam registados; não julga se a ação é eficaz nem se o prazo é razoável. |
+| A data de conclusão de uma linha é posterior ao seu prazo, ou as duas colunas estão trocadas. | `LG-006` compara `dueAt` com `completedAt` em cada linha e assinala a linha quando o prazo é anterior à data de conclusão. O pacote de regras declara o seu limite por palavras próprias: compara apenas a ordem das duas datas e não decide se o trabalho foi realmente concluído dentro do prazo. Uma data que não consegue analisar é reportada à parte em vez de ser ignorada. |
+| `LG-004` e `LG-007` nunca reportam nada — significa que o meu registo passou nestas regras? | Não: ambas as regras se declaram em `skipped`. `LG-004` vem com `threshold: 0`, ou seja, por configurar: defina a partir de que lacuna a ação de desenvolvimento é obrigatória. `LG-007` vem com o vocabulário de estados vazio: preencha-o com a terminologia da sua instituição. Depois de configuradas, `LG-004` verifica apenas que a coluna da ação está preenchida e `LG-007` apenas que o valor do estado consta do seu vocabulário; nenhuma julga se a ação foi realmente executada. |
+
+## Normas que segue
+
+| Documento | Número | Regras que o citam |
+|---|---|---|
+| 《质量管理 能力管理和人员发展指南》 | GB/T 19025—2023（质量管理 能力管理和人员发展指南；2023-03-17 发布并实施；归口全国质量管理和质量保证标准化技术委员会；条号本次未取得） | LG-001, LG-002, LG-003, LG-005, LG-006 |
+| 本机构培训与发展管理口径（本机构配置） | 无统一标准（本条依据为本机构配置的差距阈值） | LG-004 |
+| 本机构培训与发展管理口径（本机构配置） | 无统一标准（本条依据为本机构配置的状态口径） | LG-007 |
 
 **Boundary:** this plugin checks a **能力差距与培养计划台账** for arithmetic and closure — that each gap names its
 position and competency, that the two level columns parse as numbers, that the gap equals required minus actual,

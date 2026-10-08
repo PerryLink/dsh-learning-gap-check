@@ -1,4 +1,25 @@
-# dsh-learning-gap-check
+# dsh-learning-gap-check — Competency gap and development plan register check
+
+`dsh-learning-gap-check` reads one competency-gap and development-plan register — the employee header plus one row per competency — and checks that register's own arithmetic and closure: that each gap names its position and competency, that the recorded levels parse as numbers, that the gap equals the required level minus the actual level, that a gap beyond your configured threshold carries a development action, that an action names an owner and a due date, that the completion date is not later than the deadline, and that the action status comes from your own vocabulary.
+
+## What it answers
+
+| You ask | What it answers |
+|---|---|
+| A row carries the competency but leaves the position blank. | `LG-001` reports a row only when `position` and `competency` are both empty; one of the two filled is enough. It checks that the row names a post and a competency, not whether the competency requirement for that post is reasonable or complete. |
+| Our levels are written as words (`熟练`, `掌握`) or as letters (`A`/`B`/`C`) — what happens? | `LG-002` reads `actualLevel` and requires it to parse as a number, so a level written as a word or a letter is reported as unparseable. The plugin ships no competency scale: convert the register to a numeric scale, or disable `LG-002` together with `LG-003`. Parseability is all it checks — whether the assessment was objective or accurate is not judged. |
+| The gap column says `3`, but required `4` minus actual `2` is `2` — does that get caught? | `LG-003` recomputes `requiredLevel − actualLevel` with a tolerance of `0` and reports the row whose stored `gapLevel` disagrees. It runs only when all three columns hold parseable numbers; if one is missing the rule goes to `skipped`. A negative gap is reported as it stands, because the columns may have been transposed, and the rule does not decide how large a gap counts as a problem. |
+| A row records a development action but no owner and no due date. | `LG-005` requires `owner` and `dueAt` on every row whose `action` is filled, and reports the row missing either one. It checks that the two fields are recorded; it does not judge whether the action is effective or the deadline reasonable. |
+| A row's completion date is later than its due date, or the two columns were filled in the wrong order. | `LG-006` compares `dueAt` with `completedAt` on every row and reports the row when the due date falls before the completion date. The pack states its limit in its own words: it compares only the order of the two dates and does not decide whether the work was really completed on schedule. A date it cannot parse is reported in its own right instead of being passed over. |
+| `LG-004` and `LG-007` never report anything — does that mean my register passed them? | No: both rules report themselves in `skipped`. `LG-004` ships with `threshold: 0`, which means unconfigured — set the gap size at which a development action becomes mandatory. `LG-007` ships with an empty status vocabulary — fill it from your institution's own wording. Once configured, `LG-004` checks only that the action column is filled and `LG-007` only that the status value is in your vocabulary; neither judges whether the action was really carried out. |
+
+## Standards it follows
+
+| Document | Number | Cited by rules |
+|---|---|---|
+| 《质量管理 能力管理和人员发展指南》 | GB/T 19025—2023（质量管理 能力管理和人员发展指南；2023-03-17 发布并实施；归口全国质量管理和质量保证标准化技术委员会；条号本次未取得） | LG-001, LG-002, LG-003, LG-005, LG-006 |
+| 本机构培训与发展管理口径（本机构配置） | 无统一标准（本条依据为本机构配置的差距阈值） | LG-004 |
+| 本机构培训与发展管理口径（本机构配置） | 无统一标准（本条依据为本机构配置的状态口径） | LG-007 |
 
 **Boundary:** this plugin checks a **能力差距与培养计划台账** for arithmetic and closure — that each gap names its
 position and competency, that the two level columns parse as numbers, that the gap equals required minus actual,

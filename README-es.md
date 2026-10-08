@@ -1,4 +1,25 @@
-# dsh-learning-gap-check
+# dsh-learning-gap-check — Registro de brechas de competencia y verificación del plan de desarrollo
+
+`dsh-learning-gap-check` lee un registro de brechas de competencia y plan de desarrollo —la cabecera del empleado más una fila por competencia— y comprueba la aritmética y el cierre de ese propio registro: que cada brecha indique su puesto y su competencia, que los niveles registrados se analicen como números, que la brecha sea igual al nivel requerido menos el nivel actual, que una brecha superior a su umbral configurado lleve una acción de desarrollo, que la acción indique responsable y fecha límite, que la fecha de realización no sea posterior a la fecha límite y que el estado de la acción proceda de su propio vocabulario.
+
+## Qué responde
+
+| Usted pregunta | Qué responde |
+|---|---|
+| Una fila trae la competencia pero deja el puesto en blanco. | `LG-001` solo señala una fila cuando `position` y `competency` están los dos vacíos; basta con que uno de los dos esté relleno. Comprueba que la fila indique el puesto y la competencia, no si la exigencia de competencia de ese puesto es razonable o completa. |
+| Nuestros niveles están escritos con palabras («熟练», «掌握») o con letras (A/B/C), ¿qué ocurre? | `LG-002` lee `actualLevel` y exige que se analice como número, así que un nivel escrito con palabras o letras se informa como no analizable. El plugin no incluye ninguna escala de competencia: convierta el registro a una escala numérica o desactive `LG-002` junto con `LG-003`. Lo único que comprueba es que se pueda analizar; no juzga si la evaluación fue objetiva o exacta. |
+| La columna de brecha dice `3`, pero `4` menos `2` es `2`, ¿se detecta? | Sí. `LG-003` recalcula `requiredLevel − actualLevel` con tolerancia `0` y señala la fila cuyo `gapLevel` registrado no coincide. Solo se ejecuta cuando las tres columnas tienen números analizables; si falta una, la regla pasa a `skipped`. Un valor negativo se informa tal cual, porque puede que las columnas estén invertidas, y la regla no decide a partir de qué magnitud la brecha es un problema. |
+| Una fila registra una acción de desarrollo, pero sin responsable ni fecha límite. | `LG-005` exige `owner` y `dueAt` en toda fila con `action` rellena, y señala la fila a la que le falta uno de los dos. Comprueba que ambos campos estén registrados; no juzga si la acción es eficaz ni si el plazo es razonable. |
+| La fecha de realización de una fila es posterior a su fecha límite, o las dos columnas están invertidas. | `LG-006` compara `dueAt` con `completedAt` en cada fila y señala la fila cuando la fecha límite es anterior a la fecha de realización. El paquete de reglas declara su límite con sus propias palabras: solo compara el orden de las dos fechas y no decide si el trabajo se completó realmente en plazo. Una fecha que no puede analizar se informa aparte en lugar de pasarse por alto. |
+| `LG-004` y `LG-007` no informan nunca de nada, ¿significa que mi registro las ha superado? | No: ambas reglas se declaran en `skipped`. `LG-004` viene con `threshold: 0`, es decir sin configurar: fije a partir de qué brecha la acción de desarrollo es obligatoria. `LG-007` viene con el vocabulario de estados vacío: rellénelo con la terminología de su institución. Una vez configuradas, `LG-004` solo comprueba que la columna de acción esté rellena y `LG-007` solo que el valor de estado figure en su vocabulario; ninguna juzga si la acción se llevó realmente a cabo. |
+
+## Normas que sigue
+
+| Documento | Número | Reglas que lo citan |
+|---|---|---|
+| 《质量管理 能力管理和人员发展指南》 | GB/T 19025—2023（质量管理 能力管理和人员发展指南；2023-03-17 发布并实施；归口全国质量管理和质量保证标准化技术委员会；条号本次未取得） | LG-001, LG-002, LG-003, LG-005, LG-006 |
+| 本机构培训与发展管理口径（本机构配置） | 无统一标准（本条依据为本机构配置的差距阈值） | LG-004 |
+| 本机构培训与发展管理口径（本机构配置） | 无统一标准（本条依据为本机构配置的状态口径） | LG-007 |
 
 **Boundary:** this plugin checks a **能力差距与培养计划台账** for arithmetic and closure — that each gap names its
 position and competency, that the two level columns parse as numbers, that the gap equals required minus actual,

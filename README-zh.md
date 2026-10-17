@@ -4,6 +4,13 @@
 
 `dsh-learning-gap-check` 读取一份能力差距与培养计划台账——员工表头加每项能力一行——核对这份台账自身的算术与闭环：每条差距是否写明岗位与能力项、记录的两个等级是否可解析为数值、差距是否等于要求等级减现有等级、超过你配置阈值的差距是否填写培养措施、培养措施是否写明责任人与完成期限、完成日期是否不晚于完成期限、培养状态是否出自本机构口径的取值。
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-learning-gap-check
+dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
+```
+
 ## 实际输出长什么样
 
 ![Terminal demo of dsh-learning-gap-check: real output over its LG-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-learning-gap-check/main/docs/assets/dsh-learning-gap-check-hero.png)
@@ -71,13 +78,6 @@ worked, or whether someone should be reassigned or dismissed.
 ## What it does
 
 规则表、字段说明与行为细节见 [README.md](README.md#what-it-does)（英文主版本）。本插件只列出材料与所引条款之间的字面差异，并对无法执行的检查在 `skipped` 中逐项说明。
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-learning-gap-check
-dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
-```
 
 ## Configuration
 

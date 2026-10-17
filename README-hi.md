@@ -4,6 +4,13 @@
 
 `dsh-learning-gap-check` एक क्षमता-अंतराल और विकास-योजना रजिस्टर पढ़ता है — कर्मचारी हेडर और प्रत्येक क्षमता की एक पंक्ति — और उसी रजिस्टर की अपनी गणना तथा शृंखला-पूर्णता की जाँच करता है: क्या प्रत्येक अंतराल में पद और क्षमता लिखी है, क्या दर्ज स्तर संख्याओं के रूप में पढ़े जा सकते हैं, क्या अंतराल आवश्यक स्तर में से वर्तमान स्तर घटाने के बराबर है, क्या आपके तय सीमांक से अधिक अंतराल पर विकास उपाय दर्ज है, क्या उपाय में ज़िम्मेदार व्यक्ति और पूर्णता तिथि दर्ज है, क्या पूर्णता तिथि समय-सीमा से बाद की नहीं है, और क्या उपाय की स्थिति आपकी ही शब्दावली से ली गई है।
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-learning-gap-check
+dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
+```
+
 ## आउटपुट कैसा दिखता है
 
 ![Terminal demo of dsh-learning-gap-check: real output over its LG-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-learning-gap-check/main/docs/assets/dsh-learning-gap-check-hero.png)
@@ -71,13 +78,6 @@ worked, or whether someone should be reassigned or dismissed.
 ## What it does
 
 नियम-सूची, फ़ील्ड और विस्तृत व्यवहार [README.md](README.md#what-it-does) (अंग्रेज़ी मुख्य संस्करण) में हैं। यह प्लगइन केवल उद्धृत धाराओं के सामने शाब्दिक अंतर सूचीबद्ध करता है और हर न चल पाई जाँच को `skipped` में बताता है।
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-learning-gap-check
-dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
-```
 
 ## Configuration
 

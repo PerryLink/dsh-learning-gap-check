@@ -4,6 +4,13 @@
 
 `dsh-learning-gap-check` lee un registro de brechas de competencia y plan de desarrollo —la cabecera del empleado más una fila por competencia— y comprueba la aritmética y el cierre de ese propio registro: que cada brecha indique su puesto y su competencia, que los niveles registrados se analicen como números, que la brecha sea igual al nivel requerido menos el nivel actual, que una brecha superior a su umbral configurado lleve una acción de desarrollo, que la acción indique responsable y fecha límite, que la fecha de realización no sea posterior a la fecha límite y que el estado de la acción proceda de su propio vocabulario.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-learning-gap-check
+dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
+```
+
 ## Cómo se ve la salida
 
 ![Terminal demo of dsh-learning-gap-check: real output over its LG-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-learning-gap-check/main/docs/assets/dsh-learning-gap-check-hero.png)
@@ -71,13 +78,6 @@ worked, or whether someone should be reassigned or dismissed.
 ## What it does
 
 La tabla de reglas, los campos y el comportamiento detallado están en [README.md](README.md#what-it-does) (versión principal en inglés). El plugin sólo enumera divergencias literales frente a las cláusulas citadas e indica en `skipped` cada comprobación que no pudo ejecutarse.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-learning-gap-check
-dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
-```
 
 ## Configuration
 

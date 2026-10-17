@@ -4,6 +4,13 @@
 
 `dsh-learning-gap-check` reads one competency-gap and development-plan register — the employee header plus one row per competency — and checks that register's own arithmetic and closure: that each gap names its position and competency, that the recorded levels parse as numbers, that the gap equals the required level minus the actual level, that a gap beyond your configured threshold carries a development action, that an action names an owner and a due date, that the completion date is not later than the deadline, and that the action status comes from your own vocabulary.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-learning-gap-check
+dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
+```
+
 ## What it looks like
 
 ![Terminal demo of dsh-learning-gap-check: real output over its LG-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-learning-gap-check/main/docs/assets/dsh-learning-gap-check-hero.png)
@@ -82,13 +89,6 @@ competency — applies a versioned rule pack, and returns a report.
 | `LG-005` | an action names an owner and a due date | warn | principle |
 | `LG-006` | the deadline does not precede the completion date | warn | principle |
 | `LG-007` | the status comes from your vocabulary (off by default) | info | local |
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-learning-gap-check
-dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
-```
 
 ## Configuration
 

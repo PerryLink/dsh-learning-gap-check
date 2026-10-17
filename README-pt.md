@@ -4,6 +4,13 @@
 
 `dsh-learning-gap-check` lê um registo de lacunas de competência e plano de desenvolvimento —o cabeçalho do colaborador mais uma linha por competência— e verifica a aritmética e o fecho desse próprio registo: que cada lacuna indique o seu posto e a sua competência, que os níveis registados sejam analisáveis como números, que a lacuna seja igual ao nível exigido menos o nível atual, que uma lacuna acima do limiar que configurar traga uma ação de desenvolvimento, que a ação indique responsável e prazo, que a data de conclusão não seja posterior ao prazo e que o estado da ação venha do seu próprio vocabulário.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-learning-gap-check
+dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
+```
+
 ## Como é a saída
 
 ![Terminal demo of dsh-learning-gap-check: real output over its LG-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-learning-gap-check/main/docs/assets/dsh-learning-gap-check-hero.png)
@@ -71,13 +78,6 @@ worked, or whether someone should be reassigned or dismissed.
 ## What it does
 
 A tabela de regras, os campos e o comportamento detalhado estão em [README.md](README.md#what-it-does) (versão principal em inglês). O plugin apenas lista divergências literais frente às cláusulas citadas e indica em `skipped` cada verificação que não pôde ser executada.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-learning-gap-check
-dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
-```
 
 ## Configuration
 

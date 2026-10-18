@@ -40,12 +40,7 @@ dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
 | 本机构培训与发展管理口径（本机构配置） | 无统一标准（本条依据为本机构配置的差距阈值） | LG-004 |
 | 本机构培训与发展管理口径（本机构配置） | 无统一标准（本条依据为本机构配置的状态口径） | LG-007 |
 
-**Boundary:** this plugin checks a **能力差距与培养计划台账** for arithmetic and closure — that each gap names its
-position and competency, that the two level columns parse as numbers, that the gap equals required minus actual,
-that a gap beyond your threshold carries a development action, that an action names an owner and a due date, that
-the completion date is not later than the deadline, and that the action status comes from your vocabulary. It does
-**not** decide whether an employee is competent, whether an assessment was objective, whether a development action
-worked, or whether someone should be reassigned or dismissed.
+**边界（中文译文，以英文原文为准）：** 本插件核对一份**能力差距与培养计划台账**的算术与闭环——每项差距是否写明其岗位与能力项，两个等级列是否可解析为数字，差距是否等于要求值减实际值，超出你所设阈值的差距是否配有培养措施，措施是否写明负责人与完成期限，完成日期是否不晚于期限，以及措施状态是否取自你的取值口径。它**不**判定员工是否胜任、考核是否客观、培养措施是否奏效，也不判定某人是否应被调岗或辞退。
 
 > ### ⚠️ What this plugin deliberately leaves out
 >

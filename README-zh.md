@@ -42,26 +42,15 @@ dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
 
 **边界（中文译文，以英文原文为准）：** 本插件核对一份**能力差距与培养计划台账**的算术与闭环——每项差距是否写明其岗位与能力项，两个等级列是否可解析为数字，差距是否等于要求值减实际值，超出你所设阈值的差距是否配有培养措施，措施是否写明负责人与完成期限，完成日期是否不晚于期限，以及措施状态是否取自你的取值口径。它**不**判定员工是否胜任、考核是否客观、培养措施是否奏效，也不判定某人是否应被调岗或辞退。
 
-> ### ⚠️ What this plugin deliberately leaves out
+> ### ⚠️ 这个插件刻意不包含的内容（以英文原文为准）
 >
-> **It ships no competency scale, and it assumes the levels are numbers.** `LG-002` and `LG-003` read three
-> numeric columns and check the arithmetic between them. A register using letter grades (`A`/`B`/`C`) or words
-> (`熟练`/`掌握`) is **reported as unparseable**, because comparing such levels is a modelling decision the
-> plugin will not make for you. Convert the scale, or disable those rules.
+> **它不自带任何能力等级量表，并且假定等级是数字。** `LG-002` 和 `LG-003` 读取三个数值列，并核对它们之间的算术关系。使用字母等级（`A`/`B`/`C`）或文字（`熟练`/`掌握`）的台账会被**报为无法解析**，因为比较这种等级是一个建模决策，本插件不会替你作出。请转换等级，或者停用这些规则。
 >
-> **It ships no threshold for "big enough to need action".** How much of a gap obliges a development action is
-> the institution's talent-management call — some units require one for any shortfall, others tolerate a step —
-> so `LG-004`'s threshold starts at `0` and the rule reports itself in `skipped` until you set it.
+> **它不自带「大到需要采取行动」的阈值。** 差距达到多少才必须采取培养行动，是机构人才管理的判断——有的单位只要存在差距就要求行动，有的则容忍一个档次的差距——因此 `LG-004` 的阈值从 `0` 开始，在你设定之前，该规则会把自己记入 `skipped`。
 >
-> **The status vocabulary ships empty** for the same reason. And the date rule checks only that the deadline
-> does not precede the completion date, which is a data-entry property: **it does not judge whether the work was
-> done late.**
+> **状态词表同样因此出厂为空**。日期规则只核对截止日期不早于完成日期，这是一项数据录入属性：**它不判断工作是否延期完成。**
 >
-> **Every `excerpt` in the rule pack says, in so many words, that the clause text was not obtained.** The regime
-> lives in GB/T 19025 (identical to ISO 10015) and each institution's qualification and training rules. The
-> verification pass could not retrieve verbatim clause text, so the pack states the gap in the `excerpt` field
-> itself and keeps every rule at `warn` or `info`. **When the texts are in hand, replace each `excerpt` with the
-> real clause and raise `kind` to `direct`.**
+> **规则库中的每一个 `excerpt` 都明文写着：条款原文本次未取得。** 该制度见于 GB/T 19025（与 ISO 10015 等同）以及各机构自己的资格与培训规则。核验环节无法取得逐字条款原文，因此规则库在 `excerpt` 字段本身写明这一缺口，并把每条规则保持在 `warn` 或 `info`。**待取得原文后，请把每个 `excerpt` 换成真实条款，并把 `kind` 提到 `direct`。**
 
 ## Compatibility
 

@@ -1,5 +1,7 @@
 # dsh-learning-gap-check — Competency gap and development plan register check
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-learning-gap-check` reads one competency-gap and development-plan register — the employee header plus one row per competency — and checks that register's own arithmetic and closure: that each gap names its position and competency, that the recorded levels parse as numbers, that the gap equals the required level minus the actual level, that a gap beyond your configured threshold carries a development action, that an action names an owner and a due date, that the completion date is not later than the deadline, and that the action status comes from your own vocabulary.

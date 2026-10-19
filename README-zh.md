@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-learning-gap-check?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-learning-gap-check?ref=badge)
 
 `dsh-learning-gap-check` 读取一份能力差距与培养计划台账——员工表头加每项能力一行——核对这份台账自身的算术与闭环：每条差距是否写明岗位与能力项、记录的两个等级是否可解析为数值、差距是否等于要求等级减现有等级、超过你配置阈值的差距是否填写培养措施、培养措施是否写明责任人与完成期限、完成日期是否不晚于完成期限、培养状态是否出自本机构口径的取值。
 

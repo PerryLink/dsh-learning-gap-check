@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-learning-gap-check?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-learning-gap-check?ref=badge)
 
 `dsh-learning-gap-check` lee un registro de brechas de competencia y plan de desarrollo —la cabecera del empleado más una fila por competencia— y comprueba la aritmética y el cierre de ese propio registro: que cada brecha indique su puesto y su competencia, que los niveles registrados se analicen como números, que la brecha sea igual al nivel requerido menos el nivel actual, que una brecha superior a su umbral configurado lleve una acción de desarrollo, que la acción indique responsable y fecha límite, que la fecha de realización no sea posterior a la fecha límite y que el estado de la acción proceda de su propio vocabulario.
 

@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-learning-gap-check?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-learning-gap-check?ref=badge)
 
 `dsh-learning-gap-check` lê um registo de lacunas de competência e plano de desenvolvimento —o cabeçalho do colaborador mais uma linha por competência— e verifica a aritmética e o fecho desse próprio registo: que cada lacuna indique o seu posto e a sua competência, que os níveis registados sejam analisáveis como números, que a lacuna seja igual ao nível exigido menos o nível atual, que uma lacuna acima do limiar que configurar traga uma ação de desenvolvimento, que a ação indique responsável e prazo, que a data de conclusão não seja posterior ao prazo e que o estado da ação venha do seu próprio vocabulário.
 

@@ -30,6 +30,34 @@ dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
 下表是示例集：第一行是详细走查，其余行是简短案例。
 
 
+#### 详细输出
+
+**工具** `learning_gap_check`
+
+**输入**
+
+~~~json
+{"employee":"张工","department":"设备部","rows":[{"岗位":"","能力项":"","要求等级":"4","现有等级":"2","差距等级":"2"}]}
+~~~
+ 
+**输出**
+
+~~~json
+{
+  "id": "dsh-learning-gap-check.LG-001.de09b5a6",
+  "ruleId": "LG-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "position"
+  },
+  "found": "第 1 行 position、competency 都为空",
+  "expected": "position、competency 至少应填写一项"
+}
+~~~
+
+*来源 `dsh-learning-gap-check/tests/fixtures/LG-001/LG-001-unsafe.json`*
+
 | 你会问 | 它怎么答 |
 |---|---|
 | 某行填了能力项，岗位栏空着，会被报出吗？ | `LG-001` 只在 `position` 与 `competency` 都为空时报出该行，填写其中任意一项即通过。它只核对这一行有没有写明岗位与能力项，不判断该岗位的能力要求是否合理、是否完整。 |

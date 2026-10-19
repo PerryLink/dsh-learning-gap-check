@@ -30,6 +30,34 @@ Salida real de este plugin sobre su propio fixture de prueba `LG-002` — no es 
 La tabla siguiente es el conjunto de ejemplos: la primera fila es el caso detallado y las demás son casos breves.
 
 
+#### Salida detallada
+
+**Herramienta** `learning_gap_check`
+
+**Entrada**
+
+~~~json
+{"employee":"张工","department":"设备部","rows":[{"岗位":"","能力项":"","要求等级":"4","现有等级":"2","差距等级":"2"}]}
+~~~
+ 
+**Salida**
+
+~~~json
+{
+  "id": "dsh-learning-gap-check.LG-001.de09b5a6",
+  "ruleId": "LG-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "position"
+  },
+  "found": "第 1 行 position、competency 都为空",
+  "expected": "position、competency 至少应填写一项"
+}
+~~~
+
+*Observado en `dsh-learning-gap-check/tests/fixtures/LG-001/LG-001-unsafe.json`*
+
 | Usted pregunta | Qué responde |
 |---|---|
 | Una fila trae la competencia pero deja el puesto en blanco. | `LG-001` solo señala una fila cuando `position` y `competency` están los dos vacíos; basta con que uno de los dos esté relleno. Comprueba que la fila indique el puesto y la competencia, no si la exigencia de competencia de ese puesto es razonable o completa. |

@@ -30,6 +30,34 @@ dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
 नीचे दी गई तालिका उदाहरण-समुच्चय है: पहली पंक्ति विस्तृत केस है, बाकी संक्षिप्त केस हैं।
 
 
+#### विस्तृत आउटपुट
+
+**उपकरण** `learning_gap_check`
+
+**इनपुट**
+
+~~~json
+{"employee":"张工","department":"设备部","rows":[{"岗位":"","能力项":"","要求等级":"4","现有等级":"2","差距等级":"2"}]}
+~~~
+ 
+**आउटपुट**
+
+~~~json
+{
+  "id": "dsh-learning-gap-check.LG-001.de09b5a6",
+  "ruleId": "LG-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "position"
+  },
+  "found": "第 1 行 position、competency 都为空",
+  "expected": "position、competency 至少应填写一项"
+}
+~~~
+
+*स्रोत `dsh-learning-gap-check/tests/fixtures/LG-001/LG-001-unsafe.json`*
+
 | आपका सवाल | इसका जवाब |
 |---|---|
 | किसी पंक्ति में क्षमता दर्ज है, पर पद का कॉलम खाली है। | `LG-001` उस पंक्ति को तभी दर्ज करता है जब `position` और `competency` दोनों खाली हों; दोनों में से एक भरा होना ही पर्याप्त है। यह देखता है कि पंक्ति में पद और क्षमता लिखे हैं या नहीं, यह नहीं कि उस पद की क्षमता-अपेक्षा उचित या पूर्ण है। |

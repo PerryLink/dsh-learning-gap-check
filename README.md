@@ -28,6 +28,34 @@ dsh --profile <name> --dump-config | grep 'dsh-learning-gap-check'
 
 The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
+#### Detailed output
+
+**Tool** `learning_gap_check`
+
+**Input**
+
+~~~json
+{"employee":"张工","department":"设备部","rows":[{"岗位":"","能力项":"","要求等级":"4","现有等级":"2","差距等级":"2"}]}
+~~~
+ 
+**Output**
+
+~~~json
+{
+  "id": "dsh-learning-gap-check.LG-001.de09b5a6",
+  "ruleId": "LG-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "position"
+  },
+  "found": "第 1 行 position、competency 都为空",
+  "expected": "position、competency 至少应填写一项"
+}
+~~~
+
+*Observed from `dsh-learning-gap-check/tests/fixtures/LG-001/LG-001-unsafe.json`*
+
 | You ask | What it answers |
 |---|---|
 | A row carries the competency but leaves the position blank. | `LG-001` reports a row only when `position` and `competency` are both empty; one of the two filled is enough. It checks that the row names a post and a competency, not whether the competency requirement for that post is reasonable or complete. |

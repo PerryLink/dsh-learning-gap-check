@@ -1,6 +1,6 @@
 # dsh-learning-gap-check — 能力差距与培养计划核对
 
-## 快速试跑（1 分钟）
+### 快速试跑（1 分钟）
 
 ```bash
 node samples/quickstart/run.mjs --check

@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-label="dsh-learning-gap-check 结构图：台账经别名归一进入双车道闭环，环上六个检位分别核对字段与等级、差距算术、阈值触发、措施责任人期限、日期先后、状态词表；两条结果通道 issues[] 与 skipped[] 汇入 buildView()，结论交人工复核">
+<title>dsh-learning-gap-check — 双车道闭环结构图</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9f6fd"/><stop offset="1" stop-color="#e4eaf8"/></linearGradient>
+<filter id="soft" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#3a2c66" flood-opacity="0.10"/></filter>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L9 5 L1 9 z" fill="#4B67B4"/></marker>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#7a68c9" stop-opacity="0.14"/><stop offset="1" stop-color="#7a68c9" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1100" height="660" rx="22" fill="url(#bg)"/>
+<ellipse cx="980" cy="110" rx="330" ry="240" fill="url(#glow)"/>
+<ellipse cx="120" cy="600" rx="260" ry="200" fill="url(#glow)"/>
+<text x="44.0" y="54.0" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="24" font-weight="700">dsh-learning-gap-check</text>
+<text x="380.0" y="52.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="15" font-weight="700">结构图 · 一份能力台账的一次核对</text>
+<text x="1056.0" y="48.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">rules/learning-gap-check.yaml · v2026.1 · 7 条</text>
+<text x="1056.0" y="68.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">error 0 · warn 1 · info 0 · 空 issues ≠ 通过</text>
+<text x="44.0" y="74.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">台账 → 别名归一 → 七条规则逐行核对 → issues[] / skipped[] → buildView()</text>
+<line x1="44.0" y1="88.0" x2="1056.0" y2="88.0" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<rect x="44.0" y="104.0" width="206.0" height="436.0" rx="18.0" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<rect x="60.0" y="118.0" width="3.0" height="14.0" rx="1.5" fill="#4B67B4"/>
+<text x="72.0" y="130.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">台账</text>
+<rect x="152.0" y="116.0" width="82.0" height="20.0" rx="10.0" fill="#ece7f9"/>
+<text x="160.0" y="130.0" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">JSON · YAML</text>
+<text x="60.0" y="154.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">张工 · 设备部</text>
+<text x="60.0" y="173.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">2026 上半年 · 1 行</text>
+<line x1="60.0" y1="187.0" x2="234.0" y2="187.0" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="60.0" y="208.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">岗位</text>
+<text x="150.0" y="208.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">（空）</text>
+<text x="60.0" y="229.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">能力项</text>
+<text x="150.0" y="229.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">（空）</text>
+<text x="60.0" y="250.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">要求等级</text>
+<text x="150.0" y="250.0" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">4</text>
+<text x="60.0" y="271.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">现有等级</text>
+<text x="150.0" y="271.0" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">2</text>
+<text x="60.0" y="292.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">差距等级</text>
+<text x="150.0" y="292.0" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">2</text>
+<text x="60.0" y="313.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">培养措施</text>
+<text x="150.0" y="313.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">已填</text>
+<text x="60.0" y="334.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">责任人</text>
+<text x="150.0" y="334.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">李主管</text>
+<text x="60.0" y="355.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">完成期限</text>
+<text x="150.0" y="355.0" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">06-30</text>
+<text x="60.0" y="376.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">完成日期</text>
+<text x="150.0" y="376.0" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">06-20</text>
+<text x="60.0" y="397.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">状态</text>
+<text x="150.0" y="397.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">进行中</text>
+<text x="60.0" y="448.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">列名中英文都认</text>
+<text x="60.0" y="466.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">忽略大小写 / 空格 / _ / -</text>
+<text x="60.0" y="484.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">缺 rows → MaterialError</text>
+<text x="60.0" y="502.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">缺某一列 → 逐条 skipped</text>
+<text x="60.0" y="520.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">文件或内联 · 只读</text>
+<rect x="272.0" y="118.0" width="160.0" height="58.0" rx="18.0" fill="#ffffff" stroke="#e8b483" stroke-width="1.5" filter="url(#soft)"/>
+<rect x="272.0" y="128.0" width="3.0" height="38.0" rx="1.5" fill="#b45309"/>
+<text x="286.0" y="136.0" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">LG-001 · LG-002</text>
+<text x="418.0" y="137.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700" text-anchor="end">×</text>
+<text x="286.0" y="155.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">字段与等级</text>
+<text x="286.0" y="172.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">岗位/能力项空 × · 2 √</text>
+<rect x="448.0" y="118.0" width="160.0" height="58.0" rx="18.0" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="462.0" y="136.0" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">LG-003</text>
+<text x="594.0" y="137.0" fill="#15803d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700" text-anchor="end">√</text>
+<text x="462.0" y="155.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">差距算术</text>
+<text x="462.0" y="172.0" fill="#15803d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">4 − 2 = 2 √ · 容差 0</text>
+<rect x="624.0" y="118.0" width="160.0" height="58.0" rx="18.0" fill="#f5f2fb" stroke="#e3dfee" stroke-width="1.5" stroke-dasharray="5 4" filter="url(#soft)"/>
+<text x="638.0" y="136.0" fill="#8b90a0" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">LG-004</text>
+<text x="770.0" y="137.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700" text-anchor="end">–</text>
+<text x="638.0" y="155.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">阈值触发</text>
+<text x="638.0" y="172.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">threshold 0 未配置</text>
+<rect x="624.0" y="492.0" width="160.0" height="58.0" rx="18.0" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="638.0" y="510.0" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">LG-005</text>
+<text x="770.0" y="511.0" fill="#15803d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700" text-anchor="end">√</text>
+<text x="638.0" y="529.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">措施 · 人 · 期限</text>
+<text x="638.0" y="546.0" fill="#15803d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">owner · dueAt 已填 √</text>
+<rect x="448.0" y="492.0" width="160.0" height="58.0" rx="18.0" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="462.0" y="510.0" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">LG-006</text>
+<text x="594.0" y="511.0" fill="#15803d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700" text-anchor="end">√</text>
+<text x="462.0" y="529.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">日期先后</text>
+<text x="462.0" y="546.0" fill="#15803d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">06-20 ≤ 06-30 √</text>
+<rect x="272.0" y="492.0" width="160.0" height="58.0" rx="18.0" fill="#f5f2fb" stroke="#e3dfee" stroke-width="1.5" stroke-dasharray="5 4" filter="url(#soft)"/>
+<text x="286.0" y="510.0" fill="#8b90a0" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">LG-007</text>
+<text x="418.0" y="511.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700" text-anchor="end">–</text>
+<text x="286.0" y="529.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">状态词表</text>
+<text x="286.0" y="546.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">values [] → skipped</text>
+<rect x="272.0" y="176.0" width="520.0" height="318.0" rx="52.0" fill="none" stroke="#4B67B4" stroke-width="2.4" opacity="0.6"/>
+<line x1="433.0" y1="176.0" x2="447.0" y2="176.0" stroke="#4B67B4" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+<line x1="609.0" y1="176.0" x2="623.0" y2="176.0" stroke="#4B67B4" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+<line x1="792.0" y1="315.0" x2="792.0" y2="335.0" stroke="#4B67B4" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+<line x1="623.0" y1="494.0" x2="609.0" y2="494.0" stroke="#4B67B4" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+<line x1="447.0" y1="494.0" x2="433.0" y2="494.0" stroke="#4B67B4" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+<line x1="272.0" y1="438.0" x2="272.0" y2="418.0" stroke="#4B67B4" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+<line x1="250.0" y1="340.0" x2="271.0" y2="340.0" stroke="#4B67B4" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+<text x="278.0" y="326.0" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">输入</text>
+<text x="280.0" y="462.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">下一周期</text>
+<text x="532.0" y="224.0" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" font-weight="700" text-anchor="middle">七条规则 · 逐行独立核对</text>
+<text x="453.0" y="312.0" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="40" font-weight="700">4</text>
+<text x="487.0" y="312.0" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="40" font-weight="700">−</text>
+<text x="521.0" y="312.0" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="40" font-weight="700">2</text>
+<text x="555.0" y="312.0" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="40" font-weight="700">=</text>
+<text x="589.0" y="312.0" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="40" font-weight="700">2</text>
+<text x="464.0" y="268.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700" text-anchor="middle">要求</text>
+<text x="532.0" y="268.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700" text-anchor="middle">现有</text>
+<text x="600.0" y="268.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700" text-anchor="middle">差距</text>
+<text x="532.0" y="344.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" text-anchor="middle">差距 = 要求 − 现有 · 容差 0</text>
+<text x="532.0" y="368.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="middle">轨道 = 台账记录的培养闭环，不是执行顺序</text>
+<rect x="430.0" y="392.0" width="52.0" height="20.0" rx="10.0" fill="#fdf3e9"/>
+<text x="438.0" y="406.0" fill="#b45309" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">warn 1</text>
+<rect x="492.0" y="392.0" width="70.0" height="20.0" rx="10.0" fill="#f5f2fb"/>
+<text x="500.0" y="406.0" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">skipped 2</text>
+<rect x="572.0" y="392.0" width="58.0" height="20.0" rx="10.0" fill="#f5f2fb"/>
+<text x="580.0" y="406.0" fill="#8b90a0" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">error 0</text>
+<text x="532.0" y="438.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="middle">每条规则各读一处；跑不了就进 skipped</text>
+<line x1="792.0" y1="335.0" x2="807.0" y2="335.0" stroke="#4B67B4" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4"/>
+<line x1="807.0" y1="198.0" x2="807.0" y2="380.0" stroke="#4B67B4" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 4"/>
+<line x1="807.0" y1="198.0" x2="819.0" y2="198.0" stroke="#4B67B4" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arr)"/>
+<line x1="807.0" y1="380.0" x2="819.0" y2="380.0" stroke="#4B67B4" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arr)"/>
+<rect x="820.0" y="104.0" width="236.0" height="188.0" rx="18.0" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="836.0" y="128.0" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" font-weight="700">issues[]</text>
+<rect x="1006.0" y="116.0" width="34.0" height="20.0" rx="10.0" fill="#ece7f9"/>
+<text x="1014.0" y="130.0" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">1 条</text>
+<line x1="836.0" y1="142.0" x2="1040.0" y2="142.0" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="836.0" y="164.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">LG-001 · 第 1 行</text>
+<text x="836.0" y="184.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">position、competency 都为空</text>
+<text x="836.0" y="204.0" fill="#8b90a0" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">expected：至少填写一项</text>
+<text x="836.0" y="224.0" fill="#8b90a0" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">kind：derived-from-principle</text>
+<line x1="836.0" y1="240.0" x2="1040.0" y2="240.0" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="836.0" y="260.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">1 warn · 0 error · 0 info</text>
+<text x="836.0" y="278.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">空 issues ≠ 通过</text>
+<rect x="820.0" y="308.0" width="236.0" height="144.0" rx="18.0" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="836.0" y="332.0" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" font-weight="700">skipped[]</text>
+<rect x="1006.0" y="320.0" width="34.0" height="20.0" rx="10.0" fill="#f5f2fb"/>
+<text x="1014.0" y="334.0" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">2 条</text>
+<line x1="836.0" y1="346.0" x2="1040.0" y2="346.0" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="836.0" y="368.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">LG-004 · threshold 0 未配置</text>
+<text x="836.0" y="390.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">LG-007 · values [] 未配置</text>
+<text x="836.0" y="416.0" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">未执行 ≠ 通过</text>
+<text x="836.0" y="436.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">每条都写明原因</text>
+<rect x="820.0" y="468.0" width="236.0" height="72.0" rx="18.0" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<rect x="836.0" y="482.0" width="3.0" height="14.0" rx="1.5" fill="#15803d"/>
+<text x="848.0" y="494.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" font-weight="700">人工复核</text>
+<text x="836.0" y="516.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">不判胜任 · 不判措施有效</text>
+<rect x="44.0" y="556.0" width="1012.0" height="58.0" rx="18.0" fill="#f5f2fb" stroke="#e3dfee" stroke-width="1.2"/>
+<text x="60.0" y="580.0" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" font-weight="700">buildView()</text>
+<text x="60.0" y="600.0" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">markdown · reportJson</text>
+<line x1="300.0" y1="570.0" x2="300.0" y2="600.0" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="318.0" y="580.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">summary{error 0 · warn 1 · info 0}</text>
+<text x="318.0" y="600.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">reportJson 保留 locator / basis / fix</text>
+<text x="636.0" y="580.0" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">issueCount 1 · skippedCount 2</text>
+<text x="636.0" y="600.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">报告只列差异 · 结论留给审核人</text>
+<rect x="946.0" y="576.0" width="94.0" height="22.0" rx="11.0" fill="#fdf3e9"/>
+<text x="954.0" y="591.0" fill="#b45309" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" font-weight="700">空 issues ≠ 通过</text>
+<text x="44.0" y="640.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">只读材料 · 不联网 · 不调用模型 · 不写文件</text>
+<text x="1056.0" y="640.0" fill="#8b90a0" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">规则包即数据：rules/learning-gap-check.yaml · 7 条 · Apache-2.0</text>
+</svg>

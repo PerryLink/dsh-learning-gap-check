@@ -1,8 +1,8 @@
-<div align="center">
+﻿<div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-flow-dark.svg">
-  <img src="docs/assets/dsh-learning-gap-check-flow-light.svg" width="100%" alt="Fluxo do dsh-learning-gap-check: registro → learning_gap_check → pacote de regras LG-001…LG-007 → motor de verificação → achados e skipped">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-learning-gap-check-hero-en-light.webp" width="100%" alt="Banner do dsh-learning-gap-check: à esquerda, o nome do plugin, duas linhas de valor e o rodapé; à direita, a linha 1 de um registo de lacunas de competência — posto e competência vazios (LG-001), nível exigido 4 menos nível atual 2 dá uma lacuna de 2 (LG-003), e um eixo numérico de exemplo marca o intervalo de dois níveis; abaixo, os cinco campos de fecho — ação, responsável, prazo, data de conclusão e estado — com o vocabulário de estados e o limiar de lacuna por configurar, pelo que ambos são reportados em skipped; a nota inferior indica que uma lista de diferenças vazia não é uma aprovação">
 </picture>
 
 # dsh-learning-gap-check
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-learning-gap-check
 O `dsh-learning-gap-check` lê um registro de lacunas de competência e plano de desenvolvimento —o cabeçalho do colaborador mais uma linha por competência— e verifica a aritmética e o fecho desse próprio registro: que cada lacuna indique o seu posto e a sua competência, que os níveis registados sejam analisáveis como números, que a lacuna seja igual ao nível exigido menos o nível atual, que uma lacuna acima do limiar que configurar traga uma ação de desenvolvimento, que a ação indique responsável e prazo, que a data de conclusão não seja posterior ao prazo e que o estado da ação venha do seu próprio vocabulário.
 
 Expõe ao modelo uma única ferramenta, `learning_gap_check`, e mantém as sete regras como dados em `rules/learning-gap-check.yaml`: substituir o pacote de regras substitui o conjunto de regras sem tocar em TypeScript. Apenas lista diferenças literais entre o material e as cláusulas citadas pelas regras; **não** decide se um colaborador é competente, se uma avaliação foi objetiva, se uma ação funcionou, nem substitui o revisor.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-learning-gap-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-learning-gap-check: o registo à esquerda (JSON/YAML, cabeçalho e dez campos de amostra) entra num ciclo de duas faixas ao centro; seis pontos de controlo verificam de forma independente campos e níveis (LG-001/LG-002), a aritmética da lacuna (LG-003), o acionamento do limiar (LG-004), a ação com responsável e prazo (LG-005), a ordem das datas (LG-006) e o vocabulário de estados (LG-007); o centro indica lacuna = exigido menos atual; à direita, os resultados formam os canais issues[] e skipped[] (um warn, dois skipped), passam por buildView() e terminam na revisão humana">
+</picture>
 
 ## Instalação em três passos
 

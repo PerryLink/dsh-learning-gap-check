@@ -1,8 +1,8 @@
-<div align="center">
+﻿<div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-flow-dark.svg">
-  <img src="docs/assets/dsh-learning-gap-check-flow-light.svg" width="100%" alt="Flujo de dsh-learning-gap-check: registro → learning_gap_check → paquete de reglas LG-001…LG-007 → motor de comprobación → hallazgos y skipped">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-learning-gap-check-hero-en-light.webp" width="100%" alt="Banner de dsh-learning-gap-check: a la izquierda, el nombre del plugin, dos líneas de valor y el pie; a la derecha, la fila 1 de un registro de brechas de competencia — puesto y competencia vacíos (LG-001), nivel requerido 4 menos nivel actual 2 da una brecha de 2 (LG-003), y un eje numérico de ejemplo marca el tramo de dos niveles; abajo, los cinco campos de cierre — acción, responsable, plazo, fecha de realización y estado — con el vocabulario de estados y el umbral de brecha sin configurar, por lo que ambos se informan en skipped; la nota inferior indica que una lista de diferencias vacía no es una aprobación">
 </picture>
 
 # dsh-learning-gap-check
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-learning-gap-check
 `dsh-learning-gap-check` lee un registro de brechas de competencia y plan de desarrollo —la cabecera del empleado más una fila por competencia— y comprueba la aritmética y el cierre de ese propio registro: que cada brecha indique su puesto y su competencia, que los niveles registrados se analicen como números, que la brecha sea igual al nivel requerido menos el nivel actual, que una brecha superior a su umbral configurado lleve una acción de desarrollo, que la acción indique responsable y fecha límite, que la fecha de realización no sea posterior a la fecha límite y que el estado de la acción proceda de su propio vocabulario.
 
 Expone al modelo una sola herramienta, `learning_gap_check`, y mantiene las siete reglas como datos en `rules/learning-gap-check.yaml`: sustituir el paquete de reglas sustituye el conjunto de reglas sin tocar TypeScript. Solo enumera diferencias literales entre el material y las cláusulas que citan las reglas; **no** decide si un empleado es competente, si una evaluación fue objetiva, si una acción funcionó, ni sustituye al revisor.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-learning-gap-check-flow-v5-light.svg" width="100%" alt="Estructura de dsh-learning-gap-check: el registro de la izquierda (JSON/YAML, cabecera y diez campos de muestra) entra en un bucle de dos carriles en el centro; seis puntos de control comprueban de forma independiente campos y niveles (LG-001/LG-002), la aritmética de la brecha (LG-003), el disparo del umbral (LG-004), la acción con responsable y plazo (LG-005), el orden de las fechas (LG-006) y el vocabulario de estados (LG-007); el centro indica brecha = requerido menos actual; a la derecha, los resultados forman los canales issues[] y skipped[] (un warn, dos skipped), pasan por buildView() y terminan en la revisión humana">
+</picture>
 
 ## Instalación en tres pasos
 

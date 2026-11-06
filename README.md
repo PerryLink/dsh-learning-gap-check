@@ -1,8 +1,8 @@
-<div align="center">
+﻿<div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-flow-dark.svg">
-  <img src="docs/assets/dsh-learning-gap-check-flow-light.svg" width="100%" alt="dsh-learning-gap-check 工作流：台账 → learning_gap_check → 规则包 LG-001…LG-007 → 检查引擎 → 问题与 skipped">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-learning-gap-check-hero-zh-light.webp" width="100%" alt="dsh-learning-gap-check 配图：左列是插件名、两行价值句与页脚；右侧是一份能力差距台账的第 1 行——岗位与能力项两栏为空（LG-001），要求等级 4 减现有等级 2 得差距 2（LG-003），示例数值轴标出 2 与 4 之间差 2 级；下方是培养措施、责任人、完成期限、完成日期、状态五个闭环栏，其中状态词表与差距阈值未配置、两条进入 skipped；底注「空 issues 不等于通过」">
 </picture>
 
 # dsh-learning-gap-check
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-learning-gap-check
 `dsh-learning-gap-check` 读取一份能力差距与培养计划台账——员工表头加每项能力一行——并核对这份台账自身的算术与闭环：每项差距是否写明岗位与能力项、现有等级是否可解析为数值、差距是否等于要求等级减现有等级、超过你配置阈值的差距是否填写培养措施、培养措施是否写明责任人与完成期限、完成日期是否不晚于完成期限、培养状态是否取自本机构口径。
 
 它只向模型暴露一个工具 `learning_gap_check`，把七条规则的数据放在 `rules/learning-gap-check.yaml` 里：换掉规则库就换掉规则集，不用改 TypeScript。它只列材料与所引条款之间的字面差异，**不判定**员工是否胜任、考核是否客观、措施是否奏效，也不替代审核人。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-learning-gap-check-flow-v5-light.svg" width="100%" alt="dsh-learning-gap-check 结构图：左侧台账（JSON/YAML，表头与十栏样例）进入中央双车道闭环——环上六个检位独立核对字段与等级（LG-001/LG-002）、差距算术（LG-003）、阈值触发（LG-004）、措施与责任人和期限（LG-005）、日期先后（LG-006）、状态词表（LG-007）；环心是差距等于要求减现有的算式；环的右侧汇成 issues[] 与 skipped[] 两条通道（1 条 warn、2 条 skipped），再经 buildView() 投影并交人工复核">
+</picture>
 
 ## 三步上手
 

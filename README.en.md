@@ -1,8 +1,8 @@
-<div align="center">
+﻿<div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-flow-dark.svg">
-  <img src="docs/assets/dsh-learning-gap-check-flow-light.svg" width="100%" alt="dsh-learning-gap-check workflow: register → learning_gap_check → rule pack LG-001…LG-007 → check engine → issues and skipped">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-learning-gap-check-hero-en-light.webp" width="100%" alt="dsh-learning-gap-check banner: on the left, the plugin name, two value lines and the footer; on the right, row 1 of a capability-gap ledger — position and competency are empty (LG-001), required level 4 minus actual level 2 gives gap 2 (LG-003), and a sample number axis marks the two-level span; below are the five closure fields — action, owner, due date, completion date and status — with the status vocabulary and gap threshold unconfigured, so both are reported in skipped; the footnote reads that an empty issues list is not a pass">
 </picture>
 
 # dsh-learning-gap-check
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-learning-gap-check
 `dsh-learning-gap-check` reads one competency-gap and development-plan register — the employee header plus one row per competency — and checks that register's own arithmetic and closure: that each gap names its position and competency, that the recorded levels parse as numbers, that the gap equals the required level minus the actual level, that a gap beyond your configured threshold carries a development action, that an action names an owner and a due date, that the completion date is not later than the deadline, and that the action status comes from your own vocabulary.
 
 It exposes a single tool to the model, `learning_gap_check`, and keeps the seven rules as data in `rules/learning-gap-check.yaml`: replace the rule pack and you replace the rule set without touching TypeScript. It lists only literal differences between the material and the clauses the rules cite; it **does not** decide whether an employee is competent, whether an assessment was objective, whether an action worked, or replace the reviewer.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-learning-gap-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-learning-gap-check-flow-v5-light.svg" width="100%" alt="dsh-learning-gap-check structure: the ledger on the left (JSON/YAML, header and ten sampled fields) enters a two-lane loop in the centre; six checkpoints independently check fields and levels (LG-001/LG-002), gap arithmetic (LG-003), threshold trigger (LG-004), action with owner and due date (LG-005), date order (LG-006), and status vocabulary (LG-007); the centre states gap = required minus actual; on the right the results form the issues[] and skipped[] channels (one warn, two skipped), then pass through buildView() and stop at human review">
+</picture>
 
 ## Three-step setup
 

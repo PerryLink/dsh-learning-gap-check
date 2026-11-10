@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-label="dsh-learning-gap-check workflow">
+<title>dsh-learning-gap-check workflow</title>
+<rect width="1200" height="400" rx="18" fill="#0d1117"/>
+<text x="60" y="62" fill="#f0f6fc" font-family="ui-sans-serif,system-ui,sans-serif" font-size="30" font-weight="700">dsh-learning-gap-check</text>
+<text x="60" y="94" fill="#8b949e" font-family="ui-monospace,monospace" font-size="16">JSON · YAML · field aliases · rules/learning-gap-check.yaml</text>
+<line x1="60" y1="116" x2="1140" y2="116" stroke="#30363d"/>
+<rect x="60" y="150" width="180" height="96" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+<text x="150" y="190" fill="#f0f6fc" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700">material</text>
+<text x="150" y="218" fill="#8b949e" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12">file · inline</text>
+<path d="M246 198h33" stroke="#8b949e" stroke-width="3"/>
+<path d="M277 191l10 7-10 7" fill="none" stroke="#8b949e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="285" y="150" width="180" height="96" rx="14" fill="#161b22" stroke="#4B67B4" stroke-width="2"/>
+<text x="375" y="190" fill="#f0f6fc" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700">learning_gap_check</text>
+<text x="375" y="218" fill="#8b949e" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12">tool entry</text>
+<path d="M471 198h33" stroke="#8b949e" stroke-width="3"/>
+<path d="M502 191l10 7-10 7" fill="none" stroke="#8b949e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="510" y="150" width="180" height="96" rx="14" fill="#161b22" stroke="#4B67B4" stroke-width="2"/>
+<text x="600" y="190" fill="#f0f6fc" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700">rule pack</text>
+<text x="600" y="218" fill="#8b949e" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12">LG-001 … LG-007</text>
+<path d="M696 198h33" stroke="#8b949e" stroke-width="3"/>
+<path d="M727 191l10 7-10 7" fill="none" stroke="#8b949e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="735" y="150" width="180" height="96" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+<text x="825" y="190" fill="#f0f6fc" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700">check engine</text>
+<text x="825" y="218" fill="#8b949e" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12">rows · numbers · dates</text>
+<path d="M921 198h33" stroke="#8b949e" stroke-width="3"/>
+<path d="M952 191l10 7-10 7" fill="none" stroke="#8b949e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="960" y="150" width="180" height="96" rx="14" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+<text x="1050" y="190" fill="#f0f6fc" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700">report</text>
+<text x="1050" y="218" fill="#8b949e" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12">issues + skipped</text>
+<rect x="60" y="285" width="520" height="54" rx="12" fill="#161b22" stroke="#4B67B4" stroke-width="2"/>
+<text x="82" y="309" fill="#f0f6fc" font-family="ui-monospace,monospace" font-size="14" font-weight="700">skipped</text>
+<text x="82" y="328" fill="#8b949e" font-family="ui-monospace,monospace" font-size="12">every rule that cannot run says why</text>
+<rect x="620" y="285" width="520" height="54" rx="12" fill="#161b22" stroke="#4B67B4" stroke-width="2"/>
+<text x="642" y="309" fill="#f0f6fc" font-family="ui-monospace,monospace" font-size="14" font-weight="700">excerpt</text>
+<text x="642" y="328" fill="#8b949e" font-family="ui-monospace,monospace" font-size="12">never invented · kind caps severity</text>
+<text x="60" y="378" fill="#8b949e" font-family="ui-monospace,monospace" font-size="13">capability tools:register · network none · model none · write none</text>
+</svg>

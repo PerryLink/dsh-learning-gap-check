@@ -45,6 +45,11 @@ Expõe ao modelo uma única ferramenta, `learning_gap_check`, e mantém as sete 
   <img src="docs/assets/dsh-learning-gap-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-learning-gap-check: o registo à esquerda (JSON/YAML, cabeçalho e dez campos de amostra) entra num ciclo de duas faixas ao centro; seis pontos de controlo verificam de forma independente campos e níveis (LG-001/LG-002), a aritmética da lacuna (LG-003), o acionamento do limiar (LG-004), a ação com responsável e prazo (LG-005), a ordem das datas (LG-006) e o vocabulário de estados (LG-007); o centro indica lacuna = exigido menos atual; à direita, os resultados formam os canais issues[] e skipped[] (um warn, dois skipped), passam por buildView() e terminam na revisão humana">
 </picture>
 
+![dsh-learning-gap-check: execução real de terminal](docs/assets/dsh-learning-gap-check-demo.gif)
+
+*Repetição animada de uma execução real registrada neste repositório.*
+
+
 ## Instalação em três passos
 
 1. **Instale** (escolha um canal):

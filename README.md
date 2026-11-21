@@ -36,6 +36,10 @@ dsh plugin --profile <name> add dsh-learning-gap-check
 
 ## 它是什么
 
+![dsh-learning-gap-check 真实终端运行](docs/assets/dsh-learning-gap-check-demo.gif)
+
+*本仓库一次真实运行的动图回放。*
+
 `dsh-learning-gap-check` 读取一份能力差距与培养计划台账——员工表头加每项能力一行——并核对这份台账自身的算术与闭环：每项差距是否写明岗位与能力项、现有等级是否可解析为数值、差距是否等于要求等级减现有等级、超过你配置阈值的差距是否填写培养措施、培养措施是否写明责任人与完成期限、完成日期是否不晚于完成期限、培养状态是否取自本机构口径。
 
 它只向模型暴露一个工具 `learning_gap_check`，把七条规则的数据放在 `rules/learning-gap-check.yaml` 里：换掉规则库就换掉规则集，不用改 TypeScript。它只列材料与所引条款之间的字面差异，**不判定**员工是否胜任、考核是否客观、措施是否奏效，也不替代审核人。

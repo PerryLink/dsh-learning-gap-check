@@ -130,6 +130,10 @@ This check is also offered as one item of the "Teaching and Review Suite": searc
 
 ### Examples
 
+![dsh-learning-gap-check: real terminal run](docs/assets/dsh-learning-gap-check-demo.gif)
+
+*Animated replay of a real run recorded in this repository.*
+
 Below is one real issue excerpted from `reportJson`, produced from the `LG-001` test fixture:
 
 **Tool** `learning_gap_check`

@@ -7,6 +7,8 @@
 
 # dsh-learning-gap-check
 
+Current version `0.2.13`.
+
 **Close the arithmetic and the loop on a competency-gap and development-plan register in one call — differences only, no verdicts.**
 
 A DeepSeek Harness checker for training and HR teams: read a JSON/YAML register (employee header plus one row per competency), check the level arithmetic, development actions, owners and deadlines against a replaceable rule pack, and return where the row, the column and the difference are.

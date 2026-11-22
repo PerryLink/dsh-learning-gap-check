@@ -11,6 +11,8 @@
 
 प्रशिक्षण और मानव संसाधन टीमों के लिए DeepSeek Harness जाँचकर्ता: JSON/YAML रजिस्टर (कर्मचारी हेडर और प्रत्येक क्षमता की एक पंक्ति) पढ़ता है, बदले जा सकने वाले नियम-पैक के अनुसार स्तरों की गणना, विकास उपाय, ज़िम्मेदार व्यक्ति और समय-सीमा जाँचता है, और बताता है कि कौन-सी पंक्ति, कौन-सा कॉलम और क्या अंतर है।
 
+अंतिम सत्यापन: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [इंस्टॉल](#तीन-चरणों-में-शुरुआत) · [कॉन्फ़िगरेशन](#कॉन्फ़िगरेशन) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -48,7 +50,6 @@ dsh plugin --profile <name> add dsh-learning-gap-check
 ![dsh-learning-gap-check का असली टर्मिनल रन](docs/assets/dsh-learning-gap-check-demo.gif)
 
 *इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
-
 
 ## तीन चरणों में शुरुआत
 
